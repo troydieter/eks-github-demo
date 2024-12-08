@@ -1,0 +1,31 @@
+name: test gha runner
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write   
+  contents: read  
+
+jobs:
+       
+  job-eks-small:
+    runs-on: eks-small-apg
+    steps:
+      - name: "Print"
+        run: |
+          echo "Hello World - Running on small runner"   
+          sleep 60
+  job-eks-medium:
+    runs-on: eks-medium-apg
+    steps:
+      - name: "Print"
+        run: |
+          echo "Hello World - Runner on EKS  medium runner "          
+          sleep 60
+  # job-eks-large:
+  #   runs-on: eks-large-apg
+  #   steps:
+  #     - name: "Print"
+  #       run: |
+  #         echo "Hello World - Running on EKS large runner"          
+  #         sleep 30          
